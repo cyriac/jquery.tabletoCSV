@@ -1,4 +1,10 @@
 jQuery.fn.tableToCSV = function() {
+    
+    var clean_text = function(text){
+        text = text.replace(/"/g, '\\"').replace(/'/g, "\\'");
+        return text;
+    };
+    
 	$(this).each(function(){
 			var table = $(this);
 			var caption = $(this).find('caption').text();
@@ -8,10 +14,12 @@ jQuery.fn.tableToCSV = function() {
 			$(this).find('tr').each(function(){
 				var data = [];
 				$(this).find('th').each(function(){
-					title.push($(this).text());
+                    var text = clean_text($(this).text());
+					title.push(text);
 					});
 				$(this).find('td').each(function(){
-					data.push($(this).text());
+                    var text = clean_text($(this).text());
+					data.push(text);
 					});
 				data = data.join(",");
 				rows.push(data);
@@ -33,4 +41,5 @@ jQuery.fn.tableToCSV = function() {
 			download_link.click();
 			document.body.removeChild(download_link);
 	});
+    
 };
