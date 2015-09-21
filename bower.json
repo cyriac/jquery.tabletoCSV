@@ -20,5 +20,7 @@
     "test",
     "tests"
   ],
-  "dependencies": { "jquery": "latest" }
+  "dependencies": {
+    "jquery": "latest"
+  }
 }
