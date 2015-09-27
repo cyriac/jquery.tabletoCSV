@@ -2,9 +2,7 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var bump = require('gulp-bump');
 
-gulp.task('default', function() {
-
-});
+gulp.task('default', ['compress']);
 
 gulp.task('compress', function() {
     return gulp.src('jquery.tabletoCSV.js')
